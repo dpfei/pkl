@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-import random
-
 def binary_search(data_list, target):
     low = 0
     high = len(data_list) - 1
