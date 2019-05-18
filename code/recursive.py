@@ -1,9 +1,23 @@
 # _*_ coding: utf-8 _*_
-import time
+from time import sleep
+import random
+
+# 递归查找列表中最大的元素
+def findMaxElement(data_list):
+    max_num = data_list.pop(0)
+    if data_list!= []:
+        find_num = findMaxElement(data_list=data_list)
+        if find_num > max_num:
+            max_num = find_num
+    return max_num
 
 # 递归统计列表包含的元素数
-def element_total(data_list):
-    pass
+def element_total(arr):
+    total = 0
+    if arr != []:
+        arr.pop(0)
+        total = 1 + element_total(arr)
+    return total
 
 # 对一个一维数字数组进行递归求和
 def sum(arr):
@@ -28,7 +42,10 @@ def countdown(i):
     print(i)
     if i < 0:
         return None
-    time.sleep(1)
+    sleep(1)
     countdown(i-1)
 
-print(element_total([1,2,3]))
+
+sort_list = list(range(100))
+random.shuffle(sort_list)
+print(findMaxElement(sort_list))
